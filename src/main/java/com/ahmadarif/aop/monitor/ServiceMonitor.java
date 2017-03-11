@@ -50,9 +50,7 @@ public class ServiceMonitor {
     @Around("execution(* com..*Service.*(String)) && args(name)")
     public void aroundSampleCreation(ProceedingJoinPoint proceedingJoinPoint, String name) throws Throwable {
         LOGGER.info("A request was issued for a sample name: " + name);
-        proceedingJoinPoint.proceed(new Object[] {
-                name.toUpperCase()
-        });
+        proceedingJoinPoint.proceed(new Object[] {name.toUpperCase()});
     }
 
 }
